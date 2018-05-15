@@ -1,0 +1,10 @@
+---
+- hosts: rnester-database
+  become: yes
+  become_user: root
+
+  tasks:
+  - name: ensure vim is at the latest version
+    yum:
+      name: vim
+      state: latest

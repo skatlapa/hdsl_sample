@@ -1,0 +1,12 @@
+---
+- hosts: rnester-database  
+  tasks:
+  - name: Check if httpd pkg installed
+    command: rpm -q vim-enhanced
+    register: result
+    always_run: yes
+
+  - name: Assert result.rc = 0
+    assert:
+      that:
+        - "result.rc == 0"

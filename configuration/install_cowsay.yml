@@ -1,0 +1,10 @@
+---
+- hosts: rnester-frontend
+  become: yes
+  become_user: root
+
+  tasks:
+  - name: ensure cowsay is at the latest version
+    dnf:
+      name: cowsay
+      state: latest
