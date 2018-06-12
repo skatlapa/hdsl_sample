@@ -18,6 +18,11 @@ createDslContainers podName: dslPodName,
           git branch: 'master', url: 'https://github.com/robnester-rh/hdsl_sample'
       }
 
+      stage("checkout to subdir"){
+        dir("flugelhorn"){
+          git branch: 'allow_playbook_basedir', url: 'https://github.com/robnester-rh/hdsl_sample'
+        }
+      }
       stage("Parse Configuration"){
           parseConfig()
           echo env.configJSON
@@ -28,11 +33,14 @@ createDslContainers podName: dslPodName,
       }
 
       stage("Configure Infra"){
-          configureInfra verbose: true
+          configureInfra (
+            verbose: true,
+            baseDir: 'flugelhorn'
+            )
       }
 
       // stage("Execute Tests"){
-      //     executeTests verbose: true
+          // executeTests verbose: true
       // }
 
       stage("Destroy Infra"){
