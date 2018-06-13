@@ -15,7 +15,7 @@ createDslContainers podName: dslPodName,
   node(dslPodName){
       stage("pre-flight"){
           deleteDir()
-          git branch: 'master', url: 'https://github.com/robnester-rh/hdsl_sample'
+          git branch: '20-add-override-params', url: 'https://github.com/robnester-rh/hdsl_sample'
       }
 
       stage("Parse Configuration"){
@@ -28,7 +28,10 @@ createDslContainers podName: dslPodName,
       }
 
       stage("Configure Infra"){
-          configureInfra verbose: true
+          configureInfra (
+            verbose: true,
+            vars: [foo: 1, bar: 2, bugle: 3]
+          )
       }
 
       // stage("Execute Tests"){
