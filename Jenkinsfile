@@ -29,8 +29,7 @@ createDslContainers podName: dslPodName,
 
       stage("Configure Infra"){
           configureInfra (
-            verbose: true,
-            vars: [foo: 1, bar: 2, bugle: 3]
+            verbose: true
           )
       }
 
