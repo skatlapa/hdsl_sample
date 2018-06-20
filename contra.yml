@@ -14,11 +14,11 @@ infra:
           image: CentOS-7-x86_64-GenericCloud-1612
           floating_ip_pool: 10.8.240.0
           user: centos
-        - name: rnester-frontend
-          flavor: m1.small
-          image: Fedora-Cloud-Base-26-compose-latest
-          auto_ip: true
-          user: fedora
+          #- name: rnester-frontend
+          #flavor: m1.small
+          #image: Fedora-Cloud-Base-26-compose-latest
+          #auto_ip: true
+          #user: fedora
       aws:
         ami: ami-70aa560a
         region: us-east-1
