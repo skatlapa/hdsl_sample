@@ -19,19 +19,19 @@ infra:
           #image: Fedora-Cloud-Base-26-compose-latest
           #auto_ip: true
           #user: fedora
-      aws:
-        ami: ami-70aa560a
-        region: us-east-1
-        security_groups:
-        - default
-        instance_type: m4.large
-        vpc_subnet_id: subnet-cf57c596
-        assign_public_ip: true
-        key_pair: libra
-        user: ec2-user
-        instances:
-        - name: rnester-web_server
-
+          #      aws:
+          #        ami: ami-70aa560a
+          #        region: us-east-1
+          #        security_groups:
+          #        - default
+          #        instance_type: m4.large
+          #        vpc_subnet_id: subnet-cf57c596
+          #        assign_public_ip: true
+          #        key_pair: libra
+          #        user: ec2-user
+          #        instances:
+          #        - name: rnester-web_server
+          #
 
   configure:
     playbooks:
