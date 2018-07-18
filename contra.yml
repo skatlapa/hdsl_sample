@@ -14,28 +14,17 @@ infra:
           image: CentOS-7-x86_64-GenericCloud-1612
           floating_ip_pool: 10.8.240.0
           user: centos
-          #- name: rnester-frontend
-          #flavor: m1.small
-          #image: Fedora-Cloud-Base-26-compose-latest
-          #auto_ip: true
-          #user: fedora
-          #      aws:
-          #        ami: ami-70aa560a
-          #        region: us-east-1
-          #        security_groups:
-          #        - default
-          #        instance_type: m4.large
-          #        vpc_subnet_id: subnet-cf57c596
-          #        assign_public_ip: true
-          #        key_pair: libra
-          #        user: ec2-user
-          #        instances:
-          #        - name: rnester-web_server
-          #
-
   configure:
     playbooks:
       - location: playbooks/configuration/install_vim.yml
 tests:
   playbooks:
     - location: playbooks/tests/verify_vim.yml
+results:
+  outputTypes:
+    artifacts:
+      filesToSave:
+        - 'linchpin/*'
+        - 'resources/*'
+        - 'Jenkinsfile'
+      filesToExclude: 'inventory'

@@ -15,7 +15,7 @@ createDslContainers podName: dslPodName,
   node(dslPodName){
       stage("pre-flight"){
           deleteDir()
-          git branch: 'master', url: 'https://github.com/robnester-rh/hdsl_sample'
+          git branch: 'addLoggingPrimitive', url: 'https://github.com/robnester-rh/hdsl_sample'
       }
 
       stage("Parse Configuration"){
@@ -31,13 +31,18 @@ createDslContainers podName: dslPodName,
           configureInfra verbose: true
       }
 
-      // stage("Execute Tests"){
-      //     executeTests verbose: true
-      // }
+      stage("Execute Tests"){
+          executeTests verbose: true
+      }
 
       stage("Destroy Infra"){
           destroyInfra verbose: true
       }
-      archiveArtifacts allowEmptyArchive: true, artifacts: '*, linchpin/*, resources/*, linchpin/resources/*'
+
+      stage("Archive stuff"){
+          saveArtifacts filesToExclude: 'README.md',
+          filesToSave:'contra.yml'
+      }
+      // archiveArtifacts allowEmptyArchive: true, artifacts: '*, linchpin/*, resources/*, linchpin/resources/*'
   }
 }
