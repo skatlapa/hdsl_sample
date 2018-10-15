@@ -15,7 +15,7 @@ createDslContainers podName: dslPodName,
   node(dslPodName){
       stage("pre-flight"){
           deleteDir()
-          git branch: 'master', url: 'https://github.com/robnester-rh/hdsl_sample'
+          git branch: 'master', url: 'https://github.com/skatlapa/hdsl_sample'
       }
 
       stage("Parse Configuration"){
@@ -31,9 +31,9 @@ createDslContainers podName: dslPodName,
           configureInfra verbose: true
       }
 
-      // stage("Execute Tests"){
-      //     executeTests verbose: true
-      // }
+      stage("Execute Tests"){
+          executeTests verbose: true
+      }
 
       stage("Destroy Infra"){
           destroyInfra verbose: true
