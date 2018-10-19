@@ -15,7 +15,7 @@ createDslContainers podName: dslPodName,
   node(dslPodName){
       stage("pre-flight"){
           deleteDir()
-          git branch: 'master', url: 'https://github.com/skatlapa/hdsl_sample'
+          git branch: 'contra_587', url: 'https://github.com/skatlapa/hdsl_sample'
       }
 
       stage("Parse Configuration"){
