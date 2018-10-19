@@ -1,8 +1,8 @@
 // Define the openshift pod name, docker repo url, namespace, and service acct
 // for the DSL pod template.
-dslPodName = "jenkins-1-5m44b"
+dslPodName = "podName"
 dockerRepoURL = '172.30.1.1:5000'
-openshiftNamespace = 'continuous-infra'
+openshiftNamespace = 'myproject'
 openshiftServiceAccount = 'jenkins'
 
 // Create the DSL podTemplate
