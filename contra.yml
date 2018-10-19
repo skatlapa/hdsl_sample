@@ -33,11 +33,11 @@ infra:
           #        - name: rnester-web_server
           #
 
-  #configure:
-    #playbooks:
-      #- location: playbooks/configuration/install_vim.yml
+  configure:
+    playbooks:
+      - location: playbooks/configuration/install_vim.yml
 tests:
-  #playbooks:
-    #- location: playbooks/tests/verify_vim.yml
+  playbooks:
+    - location: playbooks/tests/verify_vim.yml
   scripts:
     - location: scripts/02_validate
