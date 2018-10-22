@@ -4,15 +4,15 @@ infra:
     cloud:
       openstack:
         network:
-        - atomic-e2e-jenkins-test
+        - e2e-openstack
         key_pair: ci-factory
         security_group:
           - default
         instances:
-        - name: rnester-database
+        - name: fedora27-database-3c1fda-1
           flavor: m1.small
           image: CentOS-7-x86_64-GenericCloud-1612
-          floating_ip_pool: 10.8.240.0
+          floating_ip_pool: 10.8.246.233
           user: centos
           #- name: rnester-frontend
           #flavor: m1.small
