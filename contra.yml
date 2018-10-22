@@ -36,8 +36,8 @@ infra:
   configure:
     playbooks:
       - location: playbooks/configuration/install_vim.yml
-    #scripts:
-    #  - location: 
+    scripts:
+      - location: scripts/02_validate
 tests:
   playbooks:
     - location: playbooks/tests/verify_vim.yml
