@@ -12,7 +12,7 @@ infra:
         - name: shashank-hdsl_2-02dbe3b11
           flavor: m1.small
           image: CentOS-7-x86_64-GenericCloud-1612
-          floating_ip_pool: 10.8.246.0
+          floating_ip_pool: 10.8.240.0
           user: centos
           #- name: rnester-frontend
           #flavor: m1.small
