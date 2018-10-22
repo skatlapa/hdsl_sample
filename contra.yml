@@ -5,7 +5,7 @@ infra:
       openstack:
         network:
         - atomic-e2e-jenkins-test
-        key_pair: clouds.yaml
+        key_pair: ci-factory
         security_group:
           - default
         instances:
