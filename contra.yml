@@ -39,5 +39,5 @@ infra:
 tests:
   playbooks:
     - location: playbooks/tests/verify_vim.yml
-  #scripts:
-  #  - location: scripts/02_validate
+  scripts:
+    - location: scripts/02_validate
