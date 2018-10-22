@@ -9,10 +9,10 @@ infra:
         security_group:
           - default
         instances:
-        - name: fedora27-database-3c1fda-1
+        - name: fedora28-database1
           flavor: m1.small
           image: CentOS-7-x86_64-GenericCloud-1612
-          floating_ip_pool: 10.8.246.233
+          floating_ip_pool: 10.8.246.45
           user: centos
           #- name: rnester-frontend
           #flavor: m1.small
