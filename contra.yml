@@ -2,36 +2,17 @@
 infra:
   provision:
     cloud:
-      openstack:
-        network:
-        - e2e-openstack
-        key_pair: ci-factory
-        security_group:
-          - default
+      openshift:    #check arrangement for common params for deployments
+        jenkinsMasterUrl:
+        jenkinsValue:
+        jenkinsSlaveName:
+        jenkinsNodeValue:
         instances:
-        - name: shashank-hdsl_2-02dbe3b11
-          flavor: m1.small
-          image: CentOS-7-x86_64-GenericCloud-1612
-          floating_ip_pool: 10.8.240.0
-          user: centos
-          #- name: rnester-frontend
-          #flavor: m1.small
-          #image: Fedora-Cloud-Base-26-compose-latest
-          #auto_ip: true
-          #user: fedora
-          #      aws:
-          #        ami: ami-70aa560a
-          #        region: us-east-1
-          #        security_groups:
-          #        - default
-          #        instance_type: m4.large
-          #        vpc_subnet_id: subnet-cf57c596
-          #        assign_public_ip: true
-          #        key_pair: libra
-          #        user: ec2-user
-          #        instances:
-          #        - name: rnester-web_server
-          #
+        - name: openshift
+          metadataNamespace: My Project
+          kind: ReplicationController
+          replicas: 7
+          user: developer
 
   configure:
     playbooks:
@@ -39,5 +20,3 @@ infra:
 tests:
   playbooks:
     - location: playbooks/tests/verify_vim.yml
-  scripts:
-    - location: tests/02_validate
