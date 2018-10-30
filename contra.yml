@@ -9,7 +9,7 @@ infra:
         jenkinsNodeValue: jenkins
         instances:
         - name: openshift
-          metadataNamespace: My Project
+          metadataNamespace: myproject    #check vs "my Project"
           kind: ReplicationController
           replicas: 7
           user: developer
