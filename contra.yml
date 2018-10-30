@@ -3,10 +3,10 @@ infra:
   provision:
     cloud:
       openshift:    #check arrangement for common params for deployments
-        jenkinsMasterUrl:
-        jenkinsValue:
-        jenkinsSlaveName:
-        jenkinsNodeValue:
+        jenkinsMasterUrl: https://jenkins-myproject.192.168.42.62.nip.io
+        jenkinsValue: 172.17.0.6
+        jenkinsSlaveName: jenkins-contra-slave
+        jenkinsNodeValue: jenkins
         instances:
         - name: openshift
           metadataNamespace: My Project
