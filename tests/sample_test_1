@@ -1,3 +1,5 @@
 #!/bin/bash -xe
 
-echo "Testinf shell script PR"
+DISTRO=${1}
+
+echo "Testing ${DISTRO} shell script"
