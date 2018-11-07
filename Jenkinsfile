@@ -22,7 +22,7 @@ createDslContainers podName: dslPodName,
           parseConfig()
           echo env.configJSON
       }
-
+/*
       stage("Deploy Infra"){
           deployInfra verbose: true
       }
@@ -30,14 +30,15 @@ createDslContainers podName: dslPodName,
       stage("Configure Infra"){
           configureInfra verbose: true
       }
-
+*/
       stage("Execute Tests"){
           executeTests verbose: true
       }
-
+/*
       stage("Destroy Infra"){
           destroyInfra verbose: true
       }
+*/
       archiveArtifacts allowEmptyArchive: true, artifacts: '*, linchpin/*, resources/*, linchpin/resources/*'
   }
 }
