@@ -26,11 +26,11 @@ createDslContainers podName: dslPodName,
       stage("Deploy Infra"){
           deployInfra verbose: true
       }
-/*
+
       stage("Configure Infra"){
           configureInfra verbose: true
       }
-*/
+
       stage("Execute Tests"){
           executeTests verbose: true
       }
