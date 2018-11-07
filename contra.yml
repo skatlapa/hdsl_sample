@@ -42,4 +42,4 @@ tests:
   scripts:
     - location: tests/02_validate
     - config:
-        vars: fedora27 dummy dummy-new
+        vars: fedora27 #dummy dummy-new
