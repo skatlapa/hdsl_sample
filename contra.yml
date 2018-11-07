@@ -42,4 +42,4 @@ tests:
   scripts:
     - location: tests/sample_test_1
   config:
-    - args: fedora27 dummy dummy-new
+    - args: fedora27 #dummy dummy-new
