@@ -40,6 +40,6 @@ tests:
   playbooks:
     - location: playbooks/tests/verify_vim.yml
   scripts:
-    - location: tests/02_validate
+    - location: tests/sample_args
     - config:
         vars: fedora27 #dummy dummy-new
