@@ -6,9 +6,9 @@ openshift-new:
       - resource_group_name: test1
         resource_group_type: openshift
         resource_definitions:
-          - name: testsecret
+          - name: testsecret                # this is the name of the resource that we are going to provision with this PinFile
             role: openshift_inline
-            namespace: continuous-infra
+            namespace: myproject
             definition:
               apiVersion: v1
               data:
@@ -17,7 +17,7 @@ openshift-new:
               kind: Secret
               metadata:
                 name: testsecret
-                namespace: continuous-infra
+                namespace: myproject
               type: kubernetes.io/basic-auth
         credentials:
           filename: openshift.creds
