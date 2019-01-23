@@ -20,5 +20,5 @@ openshift-new:
                 namespace: continuous-infra
               type: kubernetes.io/basic-auth
         credentials:
-          filename: upshift.yaml # fetched from --creds-path is provided
+          filename: openshift.creds
           profile: default
