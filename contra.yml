@@ -1,22 +1,24 @@
 ---
-infra:
-  provision:
-    cloud:
-      openshift:    #check arrangement for common params for deployments
-        jenkinsMasterUrl: https://jenkins-myproject.192.168.42.62.nip.io
-        jenkinsValue: 172.17.0.6
-        jenkinsSlaveName: jenkins-contra-slave
-        jenkinsNodeValue: jenkins
-        instances:
-        - name: openshift
-          metadataNamespace: myproject    #check vs "my Project"
-          kind: ReplicationController
-          replicas: 7
-          user: developer
-
-  configure:
-    playbooks:
-      - location: playbooks/configuration/install_vim.yml
-tests:
-  playbooks:
-    - location: playbooks/tests/verify_vim.yml
+openshift-new:
+  topology:
+    topology_name: openshift
+    resource_groups:
+      - resource_group_name: test1
+        resource_group_type: openshift
+        resource_definitions:
+          - name: testsecret
+            role: openshift_inline
+            namespace: continuous-infra
+            definition:
+              apiVersion: v1
+              data:
+                password: dGVzdHBhc3N3b3Jk  # creates a secret with testpassword as password
+                username: dGVzdHVzZXJuYW1l  # creates a secret with testusername as username
+              kind: Secret
+              metadata:
+                name: testsecret
+                namespace: continuous-infra
+              type: kubernetes.io/basic-auth
+        credentials:
+          filename: upshift.yaml # fetched from --creds-path is provided
+          profile: default
