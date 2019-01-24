@@ -2,7 +2,7 @@
 // for the DSL pod template.
 dslPodName = "contraDsl"
 dockerRepoURL = '172.30.1.1:5000'
-openshiftNamespace = 'contra-sample-project'
+openshiftNamespace = 'myproject'
 openshiftServiceAccount = 'jenkins'
 
 // Create the DSL podTemplate
