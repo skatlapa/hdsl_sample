@@ -1,24 +1,19 @@
 ---
-openshift-new:
-  topology:
-    topology_name: openshift
-    resource_groups:
-      - resource_group_name: test1
-        resource_group_type: openshift
-        resource_definitions:
-          - name: testsecret                # this is the name of the resource that we are going to provision with this PinFile
-            role: openshift
-            namespace: myproject
-            definition:
-              apiVersion: v1
-              data:
-                password: dGVzdHBhc3N3b3Jk  # creates a secret with testpassword as password
-                username: dGVzdHVzZXJuYW1l  # creates a secret with testusername as username
-              kind: Secret
-              metadata:
-                name: testsecret
-                namespace: myproject
-              type: kubernetes.io/basic-auth
-        credentials:
-          filename: openshift.creds
-          profile: default
+infra:
+  provision:
+    cloud:
+      openshift:
+        instances:
+        - name: testsecret
+          namespace: myproject
+          password: dGVzdHBhc3N3b3Jk
+          username: dGVzdHVzZXJuYW1l
+          user: centos
+
+  configure:
+    playbooks:
+      - location: playbooks/configuration/install_vim.yml
+
+tests:
+  playbooks:
+    - location: playbooks/tests/verify_vim.yml
