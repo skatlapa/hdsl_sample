@@ -6,9 +6,9 @@ infra:
         instances:
         - name: testsecret
           namespace: myproject
-          password: dGVzdHBhc3N3b3Jk
-          username: dGVzdHVzZXJuYW1l
-          user: centos
+          password: developer
+          username: developer
+          user: developer
 
   configure:
     playbooks:
